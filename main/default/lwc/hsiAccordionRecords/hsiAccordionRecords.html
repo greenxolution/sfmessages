@@ -1,0 +1,18 @@
+<template>
+    <div if:true={isAvaliable}>
+        <article class="slds-card">
+            <div class="slds-card__body slds-card__body_inner">
+                <lightning-accordion class="example-accordion" onsectiontoggle={handleToggleSection}>
+                    <template for:each={records} for:item="record">
+                        <lightning-accordion-section key={record.Id} name={record.Id} label={record.Name}>
+                            <lightning-record-form key={record.Id} data-misc="somthing" object-api-name={objectName} record-id={record.Id} fields={fields}
+                                onsubmit={handleSubmit} onsuccess={handleSuccess} >
+                            </lightning-record-form>
+                        </lightning-accordion-section>
+                    </template>
+                </lightning-accordion>
+            </div>
+        </article>
+    </div>
+
+</template>

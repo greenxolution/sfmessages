@@ -1,0 +1,13 @@
+<template>
+    This is my Accordion:
+    <div if:true={isAvaliable}>Conditional Code
+        <lightning-accordion class="example-accordion" onsectiontoggle={handleToggleSection}>
+            <template for:each={records} for:item="record">
+                <lightning-accordion-section key={record.Id} name={record.Id} label={record.Name}>
+                    <lightning-record-form object-api-name={objectName} record-id={record.Id} fields={fields}>
+                    </lightning-record-form>
+                </lightning-accordion-section>
+            </template>
+        </lightning-accordion>
+    </div>
+</template>

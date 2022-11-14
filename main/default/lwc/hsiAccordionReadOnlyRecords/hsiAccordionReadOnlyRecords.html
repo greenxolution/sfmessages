@@ -1,0 +1,31 @@
+<template>
+    <div if:true={isAvaliable}>
+        <article class="slds-card">
+            <div class="slds-card__body slds-card__body_inner">
+                <lightning-accordion class="example-accordion" onsectiontoggle={handleToggleSection}>
+                    <template for:each={records} for:item="record">
+                        <lightning-accordion-section key={record.Id} name={record.Id} label={record.Name}>
+                            <lightning-record-view-form object-api-name={objectName} record-id={record.Id}>
+                                <div class="slds-grid slds-wrap">
+                                    <template for:each={fields} for:item="field">
+                                        <div key={field} class="slds-col ">
+                                            <lightning-output-field key={field} field-name={field}>
+                                            </lightning-output-field>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="slds-grid slds-wrap slds-grid_align-end">
+                                    <div class="slds-col">
+                                        <lightning-button data-key={record.Id} data-record-id={record.Id}
+                                            variant="brand" label="Edit" title="Edit Record" onclick={handleClick}
+                                            class="slds-m-left_x-small"></lightning-button>
+                                    </div>
+                                </div>
+                            </lightning-record-view-form>
+                        </lightning-accordion-section>
+                    </template>
+                </lightning-accordion>
+            </div>
+        </article>
+    </div>
+</template>
